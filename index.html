@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google books api</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Book finder</h1>
+    <input id="search" placeholder="Title or author">
+    <button id="button" type="button">Click me</button>
+    <select class="sort-select">
+        <option value="averageRating" selected>Rating</option>
+        <option value="pageCount">Page count</option>
+        <option value="publishedData">Published date</option>
+        <option value="magazines">Magazines</option>
+    </select>
+    <div id="results"></div>
+    
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <script src="main.js"></script>
+</body>
+</html>

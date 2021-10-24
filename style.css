@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 25px;
+  width: 300px;
+  height: 130px;
+}
+
+.bookImg {
+  width: 200px;
+  height: 285px;
+}
+/* #results {
+} */
+.linkBtn {
+  display: block;
+  background-color: rgb(235, 145, 72);
+  width: 200px;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: right;
+}
