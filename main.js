@@ -8,7 +8,7 @@ function bookSearch() {
         dataType: "json",
 
         success: function (data) {
-            // console.log(data)
+            console.log(data)
 
             for (i = 0; i < data.items.length; i++) {
                 const urlImg = data.items[i].volumeInfo.imageLinks.thumbnail;
@@ -21,25 +21,31 @@ function bookSearch() {
 
 
 
-                const select = document.querySelector('.sort-select');
-                select.addEventListener('change', function () {
-                    if (select.value == 'pageCount') {
-                        const arr1 = data.items
-                        function sortByFeedbacks(arr) {
-                            const temp = JSON.parse(JSON.stringify(arr));
-                            // const temp = arr.slice();
-                            // temp[1].id = '01';
-                            // console.log(data.items[1]);
-                        }
-                        sortByFeedbacks(arr1);
 
-                    } else {
-                        console.log('err')
-                    }
-                });
 
 
             }
+
+
+
+            const select = document.querySelector('.sort-select');
+            select.addEventListener('change', function () {
+                if (select.value == 'pageCount') {
+                    const arr1 = data.items
+                    function sortByFeedbacks(arr) {
+                        const temp = JSON.parse(JSON.stringify(arr));
+                        // const temp = arr.slice();
+                        // temp[1].id = '01';
+                        // console.log(data.items[1]);
+                        temp.sort((a, b) => a.volumeInfo.ratingCount > b.volumeInfo.ratingCount ? 1 : -1);
+                    }
+                    sortByFeedbacks(arr1);
+
+                } else {
+                    console.log('err')
+                }
+            });
+
 
         },
         type: 'GET'
