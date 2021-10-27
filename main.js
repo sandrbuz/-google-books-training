@@ -19,27 +19,23 @@ function bookSearch() {
                 // results.innerHTML += `<a  target="_blank" class='linkBtn' href=${urlMore}>` + 'Read more' + "</a>";
                 results.innerHTML += "<div class='item'>" + "<h2 class='title'>" + data.items[i].volumeInfo.title + "</h2>" + "<h3 class='bookAuth'>" + `<img class='bookImg' src = ${urlImg}>` + `<a  target="_blank" class='linkBtn' href=${urlMore}>` + 'Read more' + "</a>" + "</div>";
 
-
-
-
-
-
             }
-
 
 
             const select = document.querySelector('.sort-select');
             select.addEventListener('change', function () {
                 if (select.value == 'pageCount') {
-                    const arr1 = data.items
+                    const arr1 = data.items;
                     function sortByFeedbacks(arr) {
                         const temp = JSON.parse(JSON.stringify(arr));
                         // const temp = arr.slice();
                         // temp[1].id = '01';
                         // console.log(data.items[1]);
-                        temp.sort((a, b) => a.volumeInfo.ratingCount > b.volumeInfo.ratingCount ? 1 : -1);
+                        arr.sort((a, b) => b.volumeInfo.pageCount - a.volumeInfo.pageCount);
+
                     }
                     sortByFeedbacks(arr1);
+
 
                 } else {
                     console.log('err')
@@ -47,11 +43,16 @@ function bookSearch() {
             });
 
 
+
+
         },
+
         type: 'GET'
 
     });
+
 }
+
 
 document.getElementById('button').addEventListener('click', bookSearch, false);
 
