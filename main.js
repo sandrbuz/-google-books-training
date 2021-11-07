@@ -3,12 +3,16 @@ function bookSearch() {
     document.getElementById('results').innerHTML = "";
     console.log(search);
 
+
+
+
     $.ajax({
-        url: "https://www.googleapis.com/books/v1/volumes?q=" + search + '&maxResults=10',
+        url: "https://www.googleapis.com/books/v1/volumes?q=" + search + '&maxResults=20&startIndex=1',
         dataType: "json",
 
         success: function (data) {
             console.log(data)
+
 
             for (i = 0; i < data.items.length; i++) {
                 const urlImg = data.items[i].volumeInfo.imageLinks.thumbnail;
@@ -62,6 +66,7 @@ function bookSearch() {
 document.getElementById('button').addEventListener('click', bookSearch, false);
 
 
+// document.querySelector('.btn-page-2').addEventListener('click', page2, false)
 
 // select.addEventListener('change', function () {
 //     if (select.value == 'averageRating') {
