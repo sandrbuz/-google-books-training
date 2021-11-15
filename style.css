@@ -27,3 +27,19 @@
   justify-content: space-between;
   align-items: right;
 }
+.btns-pages {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  align-items: center;
+  margin: 100px 10px;
+}
+.btn-bottom {
+  height: 30px;
+  width: 30px;
+  margin-left: 10px;
+}
+.top-nav {
+  position: fixed;
+  top: 0;
+}
