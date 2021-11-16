@@ -43,3 +43,6 @@
   position: fixed;
   top: 0;
 }
+#results {
+  margin-top: 100px;
+}
