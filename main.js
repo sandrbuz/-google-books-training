@@ -16,13 +16,14 @@ function bookSearch() {
 
             }
             let wrap = document.querySelector('.btns-pages')
-            for (k = 10; k < data.totalItems; k + 10) {
-                let Pg = document.createElement('button');
-                Pg.style.color = 'blue';
-                Pg.style.width = '100px';
-                Pg.style.height = '100px';
-                Pg.innerHTML = 'wtf';
-                wrap.innerHTML = Pg;
+            let notesOnPage = 10;
+            let countOfItems = Math.ceil(data.totalItems / notesOnPage);
+
+            for (j = 1; j <= countOfItems; j++) {
+                let btn = document.createElement('button');
+                btn.innerHTML = j;
+                wrap.appendChild(btn);
+                btn.classList.add('page');
 
 
             }
