@@ -15,6 +15,8 @@ function bookSearch() {
                 results.innerHTML += "<div class='item'>" + "<h2 class='title'>" + data.items[i].volumeInfo.title + "</h2>" + "<h3 class='bookAuth'>" + `<img class='bookImg' src = ${urlImg}>` + `<a  target="_blank" class='linkBtn' href=${urlMore}>` + 'Read more' + "</a>" + "</div>";
 
             }
+            // --------------------------------btns pagination
+
             let wrap = document.querySelector('.btns-pages')
             let notesOnPage = 10;
             let countOfItems = Math.ceil(data.totalItems / notesOnPage);
@@ -24,10 +26,14 @@ function bookSearch() {
                 btn.innerHTML = j;
                 wrap.appendChild(btn);
                 btn.classList.add('page');
-
-
             }
+            let Pg = document.querySelectorAll('.page');
 
+            Pg.addEventListener('click', function () {
+                let pageNum = +this.innerHTML;
+                console.log(pageNum)
+            });
+            // --------------------------------btns pagination
         },
         type: 'GET'
     });
