@@ -29,7 +29,8 @@
 }
 .btns-pages {
   display: flex;
-  width: 100px;
+  flex-wrap: wrap;
+  width: 600px;
   height: 100px;
   align-items: center;
   margin: 100px 10px;
@@ -47,5 +48,8 @@
   margin-top: 100px;
 }
 .page {
+  cursor: pointer;
+  width: 10px;
   border: none;
+  margin: 0 10px;
 }

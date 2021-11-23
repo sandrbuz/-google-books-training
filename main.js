@@ -27,16 +27,22 @@ function bookSearch() {
                 wrap.appendChild(btn);
                 btn.classList.add('page');
             }
-            let Pg = document.querySelectorAll('.page');
 
-            Pg.addEventListener('click', function () {
-                let pageNum = +this.innerHTML;
-                console.log(pageNum)
-            });
+            let Pg = document.querySelectorAll('.page');
+            for (let k = 0; k < Pg.length; k++) {
+                Pg[k].addEventListener('click', function () {
+                    console.log('hi');
+                });
+            }
+
+
+
             // --------------------------------btns pagination
         },
         type: 'GET'
     });
+
+
 }
 // func bookSearch
 
