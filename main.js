@@ -31,7 +31,31 @@ function bookSearch() {
             let Pg = document.querySelectorAll('.page');
             for (let k = 0; k < Pg.length; k++) {
                 Pg[k].addEventListener('click', function () {
-                    console.log('hi');
+
+                    let start = (+this.innerHTML - 1) * 10;
+
+                    let search = document.getElementById('search').value;
+                    document.getElementById('results').innerHTML = "";
+                    $.ajax({
+                        url: "https://www.googleapis.com/books/v1/volumes?q=" + search + `&maxResults=10&startIndex=${start}`,
+                        dataType: "json",
+
+
+                        success: function (data) {
+                            console.log(data)
+
+                            for (i = 0; i < data.items.length; i++) {
+                                const urlImg = data.items[i].volumeInfo.imageLinks.thumbnail;
+                                const urlMore = data.items[i].volumeInfo.previewLink;
+                                results.innerHTML += "<div class='item'>" + "<h2 class='title'>" + data.items[i].volumeInfo.title + "</h2>" + "<h3 class='bookAuth'>" + `<img class='bookImg' src = ${urlImg}>` + `<a  target="_blank" class='linkBtn' href=${urlMore}>` + 'Read more' + "</a>" + "</div>";
+
+                            }
+
+                        },
+                        type: 'GET'
+                    });
+
+
                 });
             }
 
