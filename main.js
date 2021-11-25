@@ -1,4 +1,7 @@
 function bookSearch() {
+    let wrapPg = document.querySelector('.btns-pages')
+    wrapPg.innerHTML = '';
+    document.querySelector('#search-button').disabled = true;
     let search = document.getElementById('search').value;
     document.getElementById('results').innerHTML = "";
     $.ajax({
@@ -17,20 +20,27 @@ function bookSearch() {
             }
             // --------------------------------btns pagination
 
-            let wrap = document.querySelector('.btns-pages')
+            // let wrapPg = document.querySelector('.btns-pages')
             let notesOnPage = 10;
             let countOfItems = Math.ceil(data.totalItems / notesOnPage);
 
             for (j = 1; j <= countOfItems; j++) {
                 let btn = document.createElement('button');
                 btn.innerHTML = j;
-                wrap.appendChild(btn);
+                wrapPg.appendChild(btn);
                 btn.classList.add('page');
             }
 
             let Pg = document.querySelectorAll('.page');
             for (let k = 0; k < Pg.length; k++) {
                 Pg[k].addEventListener('click', function () {
+                    let active = document.querySelector('button.pg-active');
+                    if (active != null) {
+                        active.classList.remove('pg-active');
+
+                    }
+
+                    this.classList.add('pg-active');
 
                     let start = (+this.innerHTML - 1) * 10;
 
@@ -62,8 +72,11 @@ function bookSearch() {
 
 
             // --------------------------------btns pagination
+            document.querySelector('#search-button').disabled = false;
+
         },
         type: 'GET'
+
     });
 
 
@@ -71,7 +84,7 @@ function bookSearch() {
 // func bookSearch
 
 
-document.querySelector('#button').addEventListener('click', bookSearch, false);
+document.querySelector('#search-button').addEventListener('click', bookSearch, false);
 
 search.onkeypress = function (event) {
     if (event.key == "Enter") {

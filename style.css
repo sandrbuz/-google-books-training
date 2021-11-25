@@ -56,3 +56,6 @@
 .page:hover {
   color: red;
 }
+.pg-active {
+  color: red;
+}
