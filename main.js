@@ -31,9 +31,14 @@ function bookSearch() {
                 btn.classList.add('page');
             }
 
+            let btnFirst = document.getElementsByTagName('button');
+            btnFirst[1].classList.add('pg-active');
+
             let Pg = document.querySelectorAll('.page');
             for (let k = 0; k < Pg.length; k++) {
                 Pg[k].addEventListener('click', function () {
+
+
                     let active = document.querySelector('button.pg-active');
                     if (active != null) {
                         active.classList.remove('pg-active');
