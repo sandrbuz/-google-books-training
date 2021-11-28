@@ -2,6 +2,9 @@ function bookSearch() {
     let wrapPg = document.querySelector('.btns-pages')
     wrapPg.innerHTML = '';
     document.querySelector('#search-button').disabled = true;
+
+
+
     let search = document.getElementById('search').value;
     document.getElementById('results').innerHTML = "";
     $.ajax({
@@ -31,8 +34,8 @@ function bookSearch() {
                 btn.classList.add('page');
             }
 
-            let btnFirst = document.getElementsByTagName('button');
-            btnFirst[1].classList.add('pg-active');
+            let btnFirst = document.querySelectorAll('.page');
+            btnFirst[0].classList.add('pg-active');
 
             let Pg = document.querySelectorAll('.page');
             for (let k = 0; k < Pg.length; k++) {
