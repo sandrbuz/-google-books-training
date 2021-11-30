@@ -2,10 +2,11 @@ function bookSearch() {
     let wrapPg = document.querySelector('.btns-pages')
     wrapPg.innerHTML = '';
     document.querySelector('#search-button').disabled = true;
-
-
-
     let search = document.getElementById('search').value;
+
+
+
+
     document.getElementById('results').innerHTML = "";
     $.ajax({
         url: "https://www.googleapis.com/books/v1/volumes?q=" + search + `&maxResults=10&startIndex=1`,
@@ -97,6 +98,7 @@ document.querySelector('#search-button').addEventListener('click', bookSearch, f
 search.onkeypress = function (event) {
     if (event.key == "Enter") {
         bookSearch();
+
     }
 };
 
