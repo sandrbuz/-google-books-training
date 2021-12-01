@@ -1,3 +1,7 @@
+
+
+
+
 function bookSearch() {
     let wrapPg = document.querySelector('.btns-pages')
     wrapPg.innerHTML = '';
