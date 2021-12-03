@@ -77,6 +77,43 @@ document.getElementById('button').addEventListener('click', bookSearch, false);
 
 
 
+// ------------------------------------------------------debounce/throttle
+
+const debounce = (callback, timer) => {
+    let timeoutFlag = null;
+
+    return (...args) => {
+        if (timeoutFlag) {
+            clearTimeout(timeoutFlag);
+        }
+        timeoutFlag = setTimeout(() => {
+            timeoutFlag = null;
+            callback(...args);
+        }, timer);
+    }
+}
+
+bookSearch();
+
+
+
+
+const Bs = debounce(bookSearch, 5000);
+
+
+document.querySelector('#search-button').addEventListener('click', bookSearch, false);
+
+search.onkeypress = function (event) {
+    if (event.key == "Enter") {
+        Bs();
+
+    }
+};
+
+
+
+
+
 
 
 

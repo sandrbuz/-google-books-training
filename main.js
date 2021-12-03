@@ -1,22 +1,18 @@
 
-const debounce = (callback, timer) => {
-    let timeoutFlag = null;
+// debounce
+const debounce = (callback) => {
+
 
     return (...args) => {
-        if (timeoutFlag) {
-            clearTimeout(timeoutFlag);
-        }
-        timeoutFlag = setTimeout(() => {
-            timeoutFlag = null;
-            callback(...args);
-        }, timer);
+
+
     }
 }
 
 
 
 
-
+// basic search function
 function bookSearch() {
     let wrapPg = document.querySelector('.btns-pages')
     wrapPg.innerHTML = '';
@@ -24,6 +20,8 @@ function bookSearch() {
     let search = document.getElementById('search').value;
 
 
+    const select = document.querySelector('.sort-select');
+    select.value = 'averageRating';
 
 
     document.getElementById('results').innerHTML = "";
@@ -41,6 +39,38 @@ function bookSearch() {
                 results.innerHTML += "<div class='item'>" + "<h2 class='title'>" + data.items[i].volumeInfo.title + "</h2>" + "<h3 class='bookAuth'>" + `<img class='bookImg' src = ${urlImg}>` + `<a  target="_blank" class='linkBtn' href=${urlMore}>` + 'Read more' + "</a>" + "</div>";
 
             }
+            // ---------------------------------------------------------------------------sort
+
+            const select = document.querySelector('.sort-select');
+            select.addEventListener('change', function () {
+                if (select.value == 'pageCount') {
+                    const arrItems = data.items;
+                    // function sortByFeedbacks(arr) {
+                    // const temp = JSON.parse(JSON.stringify(arr));
+                    // const temp = arr.slice();
+                    // temp[1].id = '01';
+                    // console.log(data.items[1]);
+                    arrItems.sort((a, b) => a.volumeInfo.pageCount - b.volumeInfo.pageCount);
+                    document.getElementById('results').innerHTML = "";
+                    for (i = 0; i < arrItems.length; i++) {
+                        const urlImg = arrItems[i].volumeInfo.imageLinks.thumbnail;
+                        const urlMore = arrItems[i].volumeInfo.previewLink;
+                        results.innerHTML += "<div class='item'>" + "<h2 class='title'>" + arrItems[i].volumeInfo.title + "</h2>" + "<h3 class='bookAuth'>" + `<img class='bookImg' src = ${urlImg}>` + `<a  target="_blank" class='linkBtn' href=${urlMore}>` + 'Read more' + "</a>" + "</div>";
+
+                    }
+
+                    console.log(arrItems);
+                    // }
+                    // sortByFeedbacks(arr1);
+
+
+                } else {
+                    console.log('err')
+                }
+            });
+
+            // ---------------------------------------------------------------------------sort
+
             // --------------------------------btns pagination
 
             // let wrapPg = document.querySelector('.btns-pages')
@@ -61,6 +91,9 @@ function bookSearch() {
             for (let k = 0; k < Pg.length; k++) {
                 Pg[k].addEventListener('click', function () {
 
+
+                    // const select = document.querySelector('.sort-select');
+                    // select.value = 'averageRating';
 
                     let active = document.querySelector('button.pg-active');
                     if (active != null) {
@@ -99,7 +132,7 @@ function bookSearch() {
 
 
 
-            // --------------------------------btns pagination
+            // --------------------------------btns pagination end
             document.querySelector('#search-button').disabled = false;
 
         },
@@ -109,9 +142,9 @@ function bookSearch() {
 
 
 }
-// func bookSearch
 
-const Bs = debounce(bookSearch, 5000);
+
+const Bs = debounce(bookSearch);
 
 
 document.querySelector('#search-button').addEventListener('click', bookSearch, false);
