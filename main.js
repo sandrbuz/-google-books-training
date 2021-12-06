@@ -1,4 +1,5 @@
-
+let fff = (Math.floor(state.window / 2));
+console.log(fff);
 // debounce
 const debounce = (callback) => {
 
@@ -131,7 +132,7 @@ function bookSearch() {
                                 const arrItems = data.items;
                                 // function sortByFeedbacks(arr) {
                                 // const temp = JSON.parse(JSON.stringify(arr));
-                                // const temp = arr.slice();
+                                // const temp = arr.slice(); 
                                 // temp[1].id = '01';
                                 // console.log(data.items[1]);
                                 arrItems.sort((a, b) => a.volumeInfo.pageCount - b.volumeInfo.pageCount);
