@@ -1,5 +1,4 @@
-let fff = (Math.floor(state.window / 2));
-console.log(fff);
+
 // debounce
 const debounce = (callback) => {
 
@@ -88,9 +87,15 @@ function bookSearch() {
             let btnFirst = document.querySelectorAll('.page');
             btnFirst[0].classList.add('pg-active');
 
+
+
+
             let Pg = document.querySelectorAll('.page');
             for (let k = 0; k < Pg.length; k++) {
                 Pg[k].addEventListener('click', function () {
+
+
+
 
                     // returning the selector to the original volume, when you click on the pagination buttons
                     // const select = document.querySelector('.sort-select');
@@ -108,6 +113,7 @@ function bookSearch() {
 
                     let start = (+this.innerHTML - 1) * 10;
 
+
                     let search = document.getElementById('search').value;
                     document.getElementById('results').innerHTML = "";
                     $.ajax({
@@ -118,12 +124,12 @@ function bookSearch() {
                         success: function (data) {
                             console.log(data)
 
-                            // for (i = 0; i < data.items.length; i++) {
-                            //     const urlImg = data.items[i].volumeInfo.imageLinks.thumbnail;
-                            //     const urlMore = data.items[i].volumeInfo.previewLink;
-                            //     results.innerHTML += "<div class='item'>" + "<h2 class='title'>" + data.items[i].volumeInfo.title + "</h2>" + "<h3 class='bookAuth'>" + `<img class='bookImg' src = ${urlImg}>` + `<a  target="_blank" class='linkBtn' href=${urlMore}>` + 'Read more' + "</a>" + "</div>";
+                            for (i = 0; i < data.items.length; i++) {
+                                const urlImg = data.items[i].volumeInfo.imageLinks.thumbnail;
+                                const urlMore = data.items[i].volumeInfo.previewLink;
+                                results.innerHTML += "<div class='item'>" + "<h2 class='title'>" + data.items[i].volumeInfo.title + "</h2>" + "<h3 class='bookAuth'>" + `<img class='bookImg' src = ${urlImg}>` + `<a  target="_blank" class='linkBtn' href=${urlMore}>` + 'Read more' + "</a>" + "</div>";
 
-                            // }
+                            }
                             // ---------------------------------------------------------------------------sort
 
                             const select = document.querySelector('.sort-select');
