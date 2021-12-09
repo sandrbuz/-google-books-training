@@ -113,6 +113,13 @@ function bookSearch() {
 
                     let start = (+this.innerHTML - 1) * 10;
 
+                    let Act = document.querySelector('.pg-active');
+                    console.log(Act);
+                    let PgNum = Number(Pg[k]);
+                    let actNum = Number(Act);
+                    if (PgNum > actNum) {
+                        Pg[k].classList.add('hide');
+                    }
 
                     let search = document.getElementById('search').value;
                     document.getElementById('results').innerHTML = "";
