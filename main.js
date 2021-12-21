@@ -113,12 +113,13 @@ function bookSearch() {
 
                     let start = (+this.innerHTML - 1) * 10;
 
+                    // hiding unnecessary pagination buttons
                     let Act = document.querySelector('.pg-active');
                     console.log(Act);
-                    let PgNum = Number(Pg[k]);
-                    let actNum = Number(Act);
+                    let PgNum = +Pg;
+                    let actNum = +Act;
                     if (PgNum > actNum) {
-                        Pg[k].classList.add('hide');
+                        Pg.classList.add('hide');
                     }
 
                     let search = document.getElementById('search').value;
