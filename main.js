@@ -117,10 +117,11 @@ function bookSearch() {
                     let Act = document.querySelector('.pg-active');
                     console.log(Act);
                     console.log(Pg);
+
                     let PgNum = +Pg.innerHTML;
                     let actNum = +Act.innerHTML;
                     if (PgNum > actNum) {
-                        Pg.classList.add('hide');
+                        Pg[k].classList.add('hide');
                     }
 
                     let search = document.getElementById('search').value;
