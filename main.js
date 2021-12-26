@@ -116,15 +116,28 @@ function bookSearch() {
                     // hiding unnecessary pagination buttons
 
                     let PgArr = Array.prototype.slice.call(Pg);
-                    let Act = document.querySelector('.pg-active');
-                    console.log(Act);
-                    console.log(PgArr);
 
-                    let PgNum = +Pg.innerHTML;
-                    let actNum = +Act.innerHTML;
-                    if (PgNum > actNum) {
-                        Pg.classList.add('hide');
+                    let index;
+                    for (index = 0; index < PgArr.length; ++index) {
+                        console.log(PgArr[index]);
                     }
+
+
+                    // let Act = document.querySelector('.pg-active');
+
+                    // console.log(Act);
+                    // console.log(PgArr);
+
+                    // let PgNum = +Pg.innerHTML;
+                    // let actNum = +Act.innerHTML;
+                    // if (PgNum > actNum) {
+                    //     Pg.classList.add('hide');
+                    // }
+
+
+
+
+
 
                     let search = document.getElementById('search').value;
                     document.getElementById('results').innerHTML = "";
