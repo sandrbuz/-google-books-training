@@ -119,7 +119,11 @@ function bookSearch() {
 
                     let index;
                     for (index = 0; index < PgArr.length; ++index) {
-                        console.log(PgArr[index]);
+                        console.log(active)
+                        if (+PgArr[index].innerHTML > +active.innerHTML) {
+                            PgArr[index].classList.add('hide');
+                        }
+
                     }
 
 
