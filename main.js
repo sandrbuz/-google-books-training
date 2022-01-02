@@ -91,6 +91,19 @@ function bookSearch() {
 
 
             let Pg = document.querySelectorAll('.page');
+            // hide pagination buttons on boot
+            let activeBtn = document.querySelector('.pg-active');
+            let PgArr = Array.prototype.slice.call(Pg);
+
+            console.log(activeBtn);
+
+            for (index = 0; index < PgArr.length; ++index) {
+                if (+PgArr[index].innerHTML > +activeBtn.innerHTML + 2) {
+                    PgArr[index].classList.add('hide');
+                }
+            }
+
+
             for (let k = 0; k < Pg.length; k++) {
                 Pg[k].addEventListener('click', function () {
 
