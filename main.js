@@ -100,6 +100,8 @@ function bookSearch() {
             for (index = 0; index < PgArr.length; ++index) {
                 if (+PgArr[index].innerHTML > +activeBtn.innerHTML + 2) {
                     PgArr[index].classList.add('hide');
+                    let last = Pg[Pg.length - 1];
+                    last.classList.remove('hide')
                 }
             }
 
