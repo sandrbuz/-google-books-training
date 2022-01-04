@@ -100,6 +100,7 @@ function bookSearch() {
             for (index = 0; index < PgArr.length; ++index) {
                 if (+PgArr[index].innerHTML > +activeBtn.innerHTML + 2) {
                     PgArr[index].classList.add('hide');
+                    // show last pagination button-----------------------------------
                     let last = Pg[Pg.length - 1];
                     last.classList.remove('hide')
                 }
@@ -137,6 +138,10 @@ function bookSearch() {
                         console.log(this)
                         if (+PgArr[index].innerHTML > +this.innerHTML + 2 || +PgArr[index].innerHTML < +this.innerHTML - 2) {
                             PgArr[index].classList.add('hide');
+                            // show last pagination button-----------------------------------
+
+                            let last = Pg[Pg.length - 1];
+                            last.classList.remove('hide')
                         } else {
                             PgArr[index].classList.remove('hide');
 
