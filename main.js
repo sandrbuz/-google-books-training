@@ -95,11 +95,11 @@ function bookSearch() {
             let activeBtn = document.querySelector('.pg-active');
             let PgArr = Array.prototype.slice.call(Pg);
 
-
-
             // adding an ellipsis before the last pagination button-----
-            let last = Pg[Pg.length - 1];
-            last.innerHTML = '...' + last.innerHTML;
+            // let last = Pg[Pg.length - 1];
+            // last.innerHTML = '...' + last.innerHTML;
+
+
 
 
             for (index = 0; index < PgArr.length; ++index) {
@@ -110,6 +110,7 @@ function bookSearch() {
                     last.classList.remove('hide')
                 }
             }
+
 
 
             for (let k = 0; k < Pg.length; k++) {
@@ -151,6 +152,11 @@ function bookSearch() {
 
                         }
                     }
+
+                    // let last = Pg[Pg.length - 1];
+                    // if (last = this) {
+                    //     last.innerHTML = last.innerHTML;
+                    // }
 
 
                     // let Act = document.querySelector('.pg-active');
