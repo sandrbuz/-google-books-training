@@ -64,6 +64,7 @@ function bookSearch() {
         success: function (data) {
             console.log(data);
 
+
             for (i = 0; i < data.items.length; i++) {
                 const urlImg = data.items[i].volumeInfo.imageLinks.thumbnail;
                 const urlMore = data.items[i].volumeInfo.previewLink;
@@ -83,6 +84,10 @@ function bookSearch() {
 
             const select = document.querySelector(".sort-select");
             select.addEventListener("change", () => sortBooks(select, data));
+
+            // when the submit button is clicked, the sort selector reverts to its default value
+            select.value = "averageRating";
+
 
             // ---------------------------------------------------------------------------sort
 
