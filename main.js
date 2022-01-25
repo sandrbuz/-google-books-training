@@ -55,10 +55,7 @@ function bookSearch() {
 
     document.getElementById("results").innerHTML = "";
     $.ajax({
-        url:
-            "https://www.googleapis.com/books/v1/volumes?q=" +
-            search +
-            `&maxResults=10&startIndex=1`,
+        url: `https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=10&startIndex=1`,
         dataType: "json",
 
         success: function (data) {
@@ -66,7 +63,7 @@ function bookSearch() {
 
 
             for (i = 0; i < data.items.length; i++) {
-                const urlImg = data.items[i].volumeInfo.imageLinks.thumbnail;
+                const urlImg = data?.items[i].volumeInfo?.imageLinks?.thumbnail;
                 const urlMore = data.items[i].volumeInfo.previewLink;
                 results.innerHTML +=
                     "<div class='item'>" +
@@ -85,7 +82,7 @@ function bookSearch() {
             const select = document.querySelector(".sort-select");
             select.addEventListener("change", () => sortBooks(select, data));
 
-            // when the submit button is clicked, the sort selector reverts to its default value
+            // when the submit button is clicked, the sort selector reverts to its default value---------------
             select.value = "averageRating";
 
 
@@ -108,9 +105,13 @@ function bookSearch() {
             btnFirst[0].classList.add("pg-active");
 
             let Pg = document.querySelectorAll(".page");
+            console.log([...Pg]);
             // hide pagination buttons on boot
             let activeBtn = document.querySelector(".pg-active");
-            let PgArr = Array.prototype.slice.call(Pg);
+            // let PgArr = Array.prototype.slice.call(Pg);
+            let PgArr = [...Pg];
+            console.log(PgArr);
+
 
             // adding an ellipsis before the last pagination button-----
             // let last = Pg[Pg.length - 1];
@@ -189,7 +190,7 @@ function bookSearch() {
                             console.log(data);
 
                             for (i = 0; i < data.items.length; i++) {
-                                const urlImg = data.items[i].volumeInfo.imageLinks.thumbnail;
+                                const urlImg = data?.items[i].volumeInfo?.imageLinks?.thumbnail;
                                 const urlMore = data.items[i].volumeInfo.previewLink;
                                 results.innerHTML +=
                                     "<div class='item'>" +
