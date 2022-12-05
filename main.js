@@ -136,7 +136,7 @@ function bookSearch() {
                     if (active != null) {
                         active.classList.remove("pg-active");
                     }
-
+                    //  console.log(this)
                     this.classList.add("pg-active");
 
                     let start = (+this.innerHTML - 1) * 10;
